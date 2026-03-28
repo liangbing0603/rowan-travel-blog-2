@@ -476,27 +476,32 @@ p {
     }
 }
 
-/* 手机端：和截图保持一致，视频撑满、无蒙层 */
+/* 手机端：视频正常 + 导航栏正常显示 */
 @media (max-width: 768px) {
     .menu-toggle {
-        display: none; /* 隐藏汉堡菜单，显示完整导航栏，和截图一致 */
+        display: block; /* 显示汉堡按钮 */
     }
     .nav-links {
-        position: static;
-        flex-direction: row;
-        background: none;
-        padding: 0;
-        box-shadow: none;
-        transform: none;
+        position: fixed;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        flex-direction: column;
+        padding: 20px 0;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+    }
+    .nav-links.active {
+        transform: translateY(0);
         opacity: 1;
         visibility: visible;
-        gap: var(--spacing-sm);
-        font-size: 0.9rem;
-    }
-    .logo {
-        font-size: 1.4rem;
     }
 
+    /* 手机视频高度（你可以自己改） */
     .hero {
         height: 60vh;
     }
@@ -506,11 +511,12 @@ p {
         height: 100%;
     }
 
+    /* 文字恢复原来大小 */
     .hero h1 {
-        font-size: 2rem;
+        font-size: 2.4rem;
     }
     .hero .subtitle {
-        font-size: 1rem;
+        font-size: 1.1rem;
     }
 }
 
