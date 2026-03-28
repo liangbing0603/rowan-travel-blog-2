@@ -362,24 +362,3 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 console.log('Wanderlust Adventures website initialized successfully!');
-// 确保移动端视频加载完成后适配
-document.addEventListener('DOMContentLoaded', function() {
-    const heroVideo = document.querySelector('.hero-video');
-    const isMobile = window.innerWidth <= 768;
-
-    if (isMobile && heroVideo) {
-        heroVideo.addEventListener('loadedmetadata', function() {
-            // 确保视频加载后尺寸正确
-            heroVideo.style.height = '100%';
-            heroVideo.style.width = '100%';
-        });
-    }
-
-    // 导航栏移动端切换
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    
-    menuToggle.addEventListener('click', function() {
-        navLinks.classList.toggle('active');
-    });
-});
